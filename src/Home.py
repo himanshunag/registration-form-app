@@ -18,13 +18,13 @@ st.markdown(
 )
 
 # Center the logo using columns, with fallback if file is missing
-col1, col2, col3 = st.columns([1,2,1])
-with col2:
-    logo_path = "logo.png"
-    if os.path.exists(logo_path):
-        st.image(logo_path, width=180)
-    else:
-        st.image("https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png", width=180)  # fallback logo
+# col1, col2, col3 = st.columns([1,2,1])
+# with col2:
+#     logo_path = "logo.png"
+#     if os.path.exists(logo_path):
+#         st.image(logo_path, width=180)
+#     else:
+#         st.image("https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png", width=180)  # fallback logo
 
 # Center the main title
 st.markdown(
