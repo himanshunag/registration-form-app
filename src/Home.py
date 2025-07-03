@@ -12,6 +12,10 @@ st.markdown(
         font-weight: bold;
         font-size: 1.1em;
     }
+    /* Hide Streamlit top menu and footer */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
     </style>
     """,
     unsafe_allow_html=True
