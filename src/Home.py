@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # Set background color to lavender for the main app area
 st.markdown(
@@ -16,10 +17,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Center the logo using columns
+# Center the logo using columns, with fallback if file is missing
 col1, col2, col3 = st.columns([1,2,1])
 with col2:
-    st.image("tgg_logo.png", width=180)  # Make sure tgg_logo.png is in the same folder as this script
+    logo_path = "tgg_logo.png"
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=180)
+    else:
+        st.image("https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png", width=180)  # fallback logo
 
 # Center the main title
 st.markdown(
@@ -59,5 +64,5 @@ if registration_type != "Select":
     url = registration_links[registration_type]["link"]
     image_path = registration_links[registration_type]["image"]
     st.markdown(f"[{registration_type} Registration Link]({url})", unsafe_allow_html=True)
-    if image_path:
+    if image_path and os.path.exists(image_path):
         st.image(image_path, caption=f"{registration_type} Registration", width=250)
