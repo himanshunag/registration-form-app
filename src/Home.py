@@ -20,7 +20,7 @@ st.markdown(
 # Center the logo using columns, with fallback if file is missing
 col1, col2, col3 = st.columns([1,2,1])
 with col2:
-    logo_path = "tgg_logo.png"
+    logo_path = "logo.png"
     if os.path.exists(logo_path):
         st.image(logo_path, width=180)
     else:
