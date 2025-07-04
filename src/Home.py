@@ -1,16 +1,21 @@
 import streamlit as st
 import os
 
-# Set background color to lavender for the main app area
+# Set background color to lavender and all font colors to black for the main app area
 st.markdown(
     """
     <style>
     .stApp {
         background-color: #E6E6FA;
+        color: black;
     }
     .bold-label {
         font-weight: bold;
         font-size: 1.1em;
+        color: black !important;
+    }
+    h1, h2, h3, h4, h5, h6, label, .css-10trblm, .css-1v0mbdj, .css-1cpxqw2 {
+        color: black !important;
     }
     /* Hide Streamlit top menu and footer */
     #MainMenu {visibility: hidden;}
@@ -21,15 +26,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Center the logo using columns, with fallback if file is missing
-# col1, col2, col3 = st.columns([1,2,1])
-# with col2:
-#     logo_path = "logo.png"
-#     if os.path.exists(logo_path):
-#         st.image(logo_path, width=180)
-#     else:
-#         st.image("https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png", width=180)  # fallback logo
-
 # Center the main title
 st.markdown(
     "<h1 style='text-align: center; color: black; font-size: 3em;'>Primo Mega Hardware</h1>",
@@ -38,7 +34,7 @@ st.markdown(
 
 # Center the sub-title
 st.markdown(
-    "<h2 style='text-align: center;'>Registration Links Application</h2>",
+    "<h2 style='text-align: center; color: black;'>Registration Links Application</h2>",
     unsafe_allow_html=True
 )
 
@@ -67,6 +63,6 @@ registration_type = st.selectbox(
 if registration_type != "Select":
     url = registration_links[registration_type]["link"]
     image_path = registration_links[registration_type]["image"]
-    st.markdown(f"[{registration_type} Registration Link]({url})", unsafe_allow_html=True)
+    st.markdown(f"<span style='color:black;'><a href='{url}' target='_blank'>{registration_type} Registration Link</a></span>", unsafe_allow_html=True)
     if image_path and os.path.exists(image_path):
         st.image(image_path, caption=f"{registration_type} Registration", width=250)
